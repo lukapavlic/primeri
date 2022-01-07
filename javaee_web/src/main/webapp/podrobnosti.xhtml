@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+	
+	<ui:composition template="WEB-INF/template/template.xhtml">
+	
+		<ui:define name="content">
+			<f:view>
+
+				<f:metadata>
+					<f:viewParam name="email" value="#{demo.izbranEmail}" />
+				</f:metadata>
+
+				<table border="0">
+					<tr>
+						<td>Ime:</td>
+						<td>#{demo.izbranaOseba.ime}</td>
+					</tr>
+					<tr>
+						<td>Priimek:</td>
+						<td>#{demo.izbranaOseba.priimek}</td>
+					</tr>
+					<tr>
+						<td>E-mail:</td>
+						<td>#{demo.izbranaOseba.email}</td>
+					</tr>
+					<tr>
+						<td>Vnos:</td>
+						<td>
+							<h:outputText value="#{demo.izbranaOseba.datumVpisa.time}">
+								<f:convertDateTime pattern="dd. MM. yyyy HH:mm:ss" />
+							</h:outputText>
+						</td>
+					</tr>
+				</table>
+				
+				<h:dataTable value="#{demo.izbranaOseba.kontakti}" var="o" rendered="#{not empty demo.izbranaOseba.kontakti}">
+					<f:facet name="header">
+						<h:outputText value="Kontakti"/>
+					</f:facet>
+					<h:column> #{o.tip} </h:column>
+					<h:column> #{o.naziv} </h:column>
+				</h:dataTable>
+				
+				<h:form>
+					<hr/>
+					Dodajanje novega kontakta:
+					<table border="0">
+						<tr>
+							<td>Tip kontakta:</td>
+							<td>
+								<h:selectOneMenu value="#{demo.novKontaktTipKontakta}">
+								   	<f:selectItem itemValue="StalniNaslov" itemLabel="Stalni naslov" />
+								   	<f:selectItem itemValue="ZacasniNaslov" itemLabel="Zacasni naslov" />
+								   	<f:selectItem itemValue="GSM" itemLabel="GSM" />
+								</h:selectOneMenu>
+							</td>
+						</tr>
+						<tr>
+							<td>Kontakt:</td>
+							<td>
+								<h:inputText id="n_kontakt" value="#{demo.novKontakt}">
+									<f:validateRequired />
+								</h:inputText> *
+								<h:message for="n_kontakt" style="color:red" />
+							</td>
+						</tr>
+						<tr>
+							<td rowspan="2"><h:commandButton value="Dodaj" actionListener="#{demo.dodajKontakt}" /></td>
+						</tr>
+					</table>
+				
+				</h:form>
+					 
+			</f:view>
+		</ui:define>
+		
+	</ui:composition>
+
+</html>
