@@ -1,0 +1,7 @@
+#docker run -d -p 80:80 gitlab/gitlab-ce
+
+#-v glconfig:/etc/gitlab
+#-v gllog:/var/log/gitlab
+#-v gldata:/var/opt/gitlab
+
+#docker exec -it 8e grep 'Password:' /etc/gitlab/initial_root_password
