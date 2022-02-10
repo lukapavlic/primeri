@@ -8,9 +8,9 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class RestClientJEEDemo {
-
-    static final URI OSEBE_URI = URI.create("http://localhost:8080/demo_jaxrs_ejb-1.0-SNAPSHOT/api/osebe/");
-    static final URI OSEBE_OSEBA_URI = URI.create("http://localhost:8080/demo_jaxrs_ejb-1.0-SNAPSHOT/api/osebe/");
+	                                         
+    static final URI OSEBE_URI = URI.create("http://localhost:8080/jakartaee_jaxrs_ejb-1.0-SNAPSHOT/api/osebe/");
+    static final URI OSEBE_OSEBA_URI = URI.create("http://localhost:8080/jakartaee_jaxrs_ejb-1.0-SNAPSHOT/api/osebe/");
 
 //    static final URI OSEBE_URI = URI.create("http://localhost:8080/OsebeDemo/rest/osebe/");
 //    static final URI OSEBE_OSEBA_URI = URI.create("http://localhost:8080/OsebeDemo/rest/osebe/oseba/");
