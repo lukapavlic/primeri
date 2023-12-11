@@ -18,6 +18,9 @@
 					<hr/>
 
 					<h:dataTable var="p" value="#{ins.policies}">
+						<f:facet name="header">
+							Policies
+						</f:facet>
 						<h:column>
 							#{p.policyCode}
 						</h:column>

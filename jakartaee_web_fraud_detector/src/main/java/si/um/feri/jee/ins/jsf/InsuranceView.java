@@ -3,8 +3,8 @@ package si.um.feri.jee.ins.jsf;
 import jakarta.ejb.EJB;
 import jakarta.enterprise.context.SessionScoped;
 import jakarta.inject.Named;
-import si.um.feri.jee.ins.dao.ClaimDao;
 import si.um.feri.jee.ins.dao.InsurancePolicyDao;
+import si.um.feri.jee.ins.ejb.Claims;
 import si.um.feri.jee.ins.jsf.vao.ClaimVao;
 import si.um.feri.jee.ins.jsf.vao.PolicyVao;
 import si.um.feri.jee.ins.vao.Claim;
@@ -21,9 +21,6 @@ import java.util.logging.Logger;
 public class InsuranceView implements Serializable {
 
     private Logger log=Logger.getLogger(InsuranceView.class.getName());
-
-    @EJB
-    ClaimDao claimDao;
 
     @EJB
     InsurancePolicyDao insurancePolicyDao;
@@ -56,9 +53,11 @@ public class InsuranceView implements Serializable {
 
         newPolicy.setAcquirer(client);
         newPolicy.setPolicyCode(client+"-"+newPolicy.getPolicyCode());
-        insurancePolicyDao.persist(new InsurancePolicy(newPolicy));
+        InsurancePolicy lastAddedPolicy=new InsurancePolicy(newPolicy);
+        insurancePolicyDao.persist(lastAddedPolicy);
         newPolicy=new PolicyVao();
         updateClient();
+        selectPolicy(lastAddedPolicy.getId());
     }
 
     public void selectPolicy(int id) {
@@ -68,13 +67,27 @@ public class InsuranceView implements Serializable {
     }
 
     public void makeClaim(){
-        //InsurancePolicy insurancePolicy=insurancePolicyDao.find(selectedPolicy.getId());
+        //check dates
+        try {
+            LocalDate.parse(currentClaim.getDate(), DateTimeFormatter.ofPattern("dd.MM.yyyy"));
+        } catch (Exception e) {
+            log.info("Error parsing: "+e.getMessage());
+            return;
+        }
+
         Claim c=new Claim(currentClaim);
-        //insurancePolicy.getClaims().add(c);
-        //claimDao.persist(c);
-        //insurancePolicyDao.persist(insurancePolicy);
         insurancePolicyDao.addClaimToPolicy(c, selectedPolicy.getId());
         updateClient();
+        currentClaim.setPolicyCode(selectedPolicy.getPolicyCode());
+        selectPolicy(selectedPolicy.getId());
+    }
+
+    public void recalculateFraudPossibilities() {
+        for (ClaimVao c:selectedPolicy.getClaims()) {
+            c.setFraudProbability(
+                Claims.detectPossibleFraud(selectedPolicy,c)
+            );
+        }
     }
 
     public PolicyVao getNewPolicy() {
@@ -116,4 +129,5 @@ public class InsuranceView implements Serializable {
     public void setSelectedPolicy(PolicyVao selectedPolicy) {
         this.selectedPolicy = selectedPolicy;
     }
+
 }

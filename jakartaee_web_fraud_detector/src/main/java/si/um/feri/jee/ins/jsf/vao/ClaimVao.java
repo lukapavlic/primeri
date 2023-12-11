@@ -15,8 +15,22 @@ public class ClaimVao {
 
     private String desc;
 
+    private double fraudProbability;
+
     public String getDesc() {
         return desc;
+    }
+
+    public double getFraudProbability() {
+        return fraudProbability;
+    }
+
+    public int getFraudProbabilityInt() {
+        return (int)(fraudProbability*100.0);
+    }
+
+    public void setFraudProbability(double fraudProbability) {
+        this.fraudProbability = fraudProbability;
     }
 
     public void setDesc(String desc) {
@@ -63,6 +77,7 @@ public class ClaimVao {
                 ", policyCode='" + policyCode + '\'' +
                 ", claimType='" + claimType + '\'' +
                 ", desc='" + desc + '\'' +
+                ", fraudProbability=" + fraudProbability +
                 '}';
     }
 

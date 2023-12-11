@@ -23,10 +23,6 @@ public class ClaimDao {
         log.info("Persisted: "+c);
     }
 
-    public Claim find(int id) {
-        return em.find(Claim.class,id);
-    }
-
     public List<Claim> find(String policyCode) {
         Query q=em.createQuery("select o from Claim o where o.policyCode = :code");
         q.setParameter("code",policyCode);

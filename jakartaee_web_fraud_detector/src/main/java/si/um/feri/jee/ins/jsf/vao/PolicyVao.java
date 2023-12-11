@@ -1,10 +1,8 @@
 package si.um.feri.jee.ins.jsf.vao;
 
 import si.um.feri.jee.ins.vao.Codes;
-
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.time.temporal.TemporalUnit;
 import java.util.ArrayList;
 import java.util.List;
 

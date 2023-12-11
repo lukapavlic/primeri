@@ -32,12 +32,6 @@ public class InsurancePolicyDao {
         return em.find(InsurancePolicy.class,id);
     }
 
-    public InsurancePolicy find(String policyCode) {
-        Query q=em.createQuery("select o from InsurancePolicy o where o.policyCode = :code");
-        q.setParameter("code",policyCode);
-        return (InsurancePolicy)q.getSingleResult();
-    }
-
     public List<InsurancePolicy> findAll(String client) {
         Query q=em.createQuery("select o from InsurancePolicy o where o.acquirer = :client");
         q.setParameter("client",client);
@@ -46,9 +40,9 @@ public class InsurancePolicyDao {
 
     public void addClaimToPolicy(Claim c, int insurancePolicyId) {
         InsurancePolicy ip=find(insurancePolicyId);
-        //Claim c=claimDao.find(claimId);
+        claimDao.persist(c);
         ip.getClaims().add(c);
-        em.persist(ip);
+        persist(ip);
     }
 
 }
