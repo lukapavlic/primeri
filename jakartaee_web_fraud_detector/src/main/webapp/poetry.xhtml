@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	
+	<h:head>
+		<meta charset="UTF-8" />
+		<title>Poetry</title>
+		<style type="text/css" media="screen">
+			@import url("../css/css.css");
+		</style>
+	</h:head>
+	
+	<h:body>
+		<h1>Poem Generator</h1>
+		
+		<f:view>
+			<h:form>
+				Generate:
+				<h:selectOneMenu value="#{poems.topic}">
+					<f:selectItem itemValue="LOVE" itemLabel="Love poem" />
+					<f:selectItem itemValue="NATURE" itemLabel="Poem about nature" />
+					<f:selectItem itemValue="SOCIETY" itemLabel="Poem about society" />
+					<f:selectItem itemValue="CHILD" itemLabel="Poem for kids" />
+				</h:selectOneMenu>
+				in
+				<h:selectOneMenu value="#{poems.language}">
+					<f:selectItem itemValue="Slovenian" itemLabel="Slovenian" />
+					<f:selectItem itemValue="English" itemLabel="English" />
+					<f:selectItem itemValue="French" itemLabel="French" />
+					<f:selectItem itemValue="Hungarian" itemLabel="Hungarian" />
+				</h:selectOneMenu>
+				<br/>
+				Two stanzas, four lines each.
+				<br/><br/>
+				<h:commandButton value="Generate a Poem" actionListener="#{poems.generatePoem}" action="poem"/>
+			</h:form>
+		</f:view>
+		
+	</h:body>
+	
+</html>

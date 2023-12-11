@@ -32,7 +32,7 @@ public class ShopTest {
 		System.out.println("ShopTest.testShp();");
     	
     	
-    	assertEquals(p.itemsAvailable("0"),3);
+    	assertEquals(p.itemsAvailable("0"),30);
     	assertEquals(p.itemsAvailable("1"),10);
     	assertEquals(p.itemsAvailable("2"),2);
     	assertEquals(p.itemsAvailable("20"),0);

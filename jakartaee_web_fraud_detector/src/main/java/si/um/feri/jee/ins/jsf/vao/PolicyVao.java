@@ -1,16 +1,28 @@
 package si.um.feri.jee.ins.jsf.vao;
 
+import si.um.feri.jee.ins.vao.Codes;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.TemporalUnit;
+import java.util.ArrayList;
 import java.util.List;
 
 public class PolicyVao {
 
     private int id;
 
-    private String acquiredDate;
+    private String acquiredDate=LocalDate.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
+
+    private String validTillDate=LocalDate.now().plusYears(1).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
+
+    private boolean firstCarOwner=true;
+
+    private String carType= Codes.CAR_TYPE_SEDAN;
 
     private String Acquirer;
 
-    private String policyCode;
+    private String policyCode="1-1-1";
 
     private boolean animals;
 
@@ -22,7 +34,7 @@ public class PolicyVao {
 
     private boolean glasses;
 
-    private List<ClaimVao> claims;
+    private List<ClaimVao> claims=new ArrayList<>();
 
     public int getId() {
         return id;
@@ -30,6 +42,30 @@ public class PolicyVao {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public boolean isFirstCarOwner() {
+        return firstCarOwner;
+    }
+
+    public void setFirstCarOwner(boolean firstCarOwner) {
+        this.firstCarOwner = firstCarOwner;
+    }
+
+    public String getCarType() {
+        return carType;
+    }
+
+    public void setCarType(String carType) {
+        this.carType = carType;
+    }
+
+    public String getValidTillDate() {
+        return validTillDate;
+    }
+
+    public void setValidTillDate(String validTillDate) {
+        this.validTillDate = validTillDate;
     }
 
     public String getAcquiredDate() {
@@ -109,6 +145,9 @@ public class PolicyVao {
         return "PolicyVao{" +
                 "id=" + id +
                 ", acquiredDate='" + acquiredDate + '\'' +
+                ", validTillDate='" + validTillDate + '\'' +
+                ", firstCarOwner=" + firstCarOwner +
+                ", carType='" + carType + '\'' +
                 ", Acquirer='" + Acquirer + '\'' +
                 ", policyCode='" + policyCode + '\'' +
                 ", animals=" + animals +

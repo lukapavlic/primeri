@@ -1,14 +1,27 @@
 package si.um.feri.jee.ins.jsf.vao;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 public class ClaimVao {
 
     private int id;
 
-    private String date;
+    private String date=LocalDate.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
 
     private String policyCode;
 
     private String claimType;
+
+    private String desc;
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
 
     public int getId() {
         return id;
@@ -49,6 +62,7 @@ public class ClaimVao {
                 ", date='" + date + '\'' +
                 ", policyCode='" + policyCode + '\'' +
                 ", claimType='" + claimType + '\'' +
+                ", desc='" + desc + '\'' +
                 '}';
     }
 

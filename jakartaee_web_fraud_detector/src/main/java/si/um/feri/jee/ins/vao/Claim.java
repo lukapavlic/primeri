@@ -5,13 +5,31 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import si.um.feri.jee.ins.jsf.vao.ClaimVao;
-
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 public class Claim {
 
     public Claim() {
+    }
+
+    public Claim(ClaimVao vao) {
+        setDescription(vao.getDesc());
+        setId(vao.getId());
+        setPartCode(vao.getClaimType());
+        setPolicyCode(vao.getPolicyCode());
+        setIssued(LocalDate.parse(vao.getDate(),DateTimeFormatter.ofPattern("dd.MM.yyyy")));
+    }
+
+    public ClaimVao asClaimVao() {
+        ClaimVao ret=new ClaimVao();
+        ret.setClaimType(getPartCode());
+        ret.setId(getId());
+        ret.setPolicyCode(getPolicyCode());
+        ret.setDate(getIssued().format(DateTimeFormatter.ofPattern("dd.MM.yyyy")));
+        ret.setDesc(getDescription());
+        return ret;
     }
 
     @Id

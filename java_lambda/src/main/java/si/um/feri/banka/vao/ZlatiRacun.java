@@ -5,6 +5,11 @@ import java.math.BigDecimal;
 
 public class ZlatiRacun extends BancniRacun {
 
+    @Override
+    public void izpis() {
+        System.out.println("Jaz sem ZLATI bančni račun");
+    }
+
     public ZlatiRacun() {
     }
 

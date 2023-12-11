@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+>
+	
+	<ui:composition template="WEB-INF/template/template.xhtml">
+	
+		<ui:define name="content">
+			<f:view>
+				<h:form>
+
+					<table>
+						<tr>
+							<td>Policy:</td>
+							<td><h:inputText value="#{ins.currentClaim.policyCode}" id="new_claim_policy"/></td>
+						</tr>
+						<tr>
+							<td>Claim date:</td>
+							<td><h:inputText value="#{ins.currentClaim.date}" id="new_claim_date"/></td>
+						</tr>
+						<tr>
+							<td>Claim type:</td>
+							<td>
+								<h:selectOneListbox value="#{ins.currentClaim.claimType}"  id="new_claim_type">
+									<f:selectItem itemValue="glasses" itemDescription="Glasses" />
+									<f:selectItem itemValue="lights" itemDescription="Lights" />
+									<f:selectItem itemValue="vandalism" itemDescription="Vandalism" />
+									<f:selectItem itemValue="thunderStorm" itemDescription="ThunderStorm" />
+									<f:selectItem itemValue="animals" itemDescription="Animals" />
+								</h:selectOneListbox>
+							</td>
+						</tr>
+						<tr>
+							<td>Description:</td>
+							<td><h:inputTextarea value="#{ins.currentClaim.desc}" id="new_claim_desc"/></td>
+						</tr>
+						<tr>
+							<td> </td>
+							<td><h:commandButton value="Issua a Claim" actionListener="#{ins.makeClaim}"  id="new_claim_button"/></td>
+						</tr>
+					</table>
+
+					<hr/>
+
+					<h:dataTable value="#{ins.selectedPolicy.claims}" var="c" >
+						<h:column>
+							#{c.date}
+						</h:column>
+						<h:column>
+							#{c.claimType}
+						</h:column>
+						<h:column>
+							#{c.desc}
+						</h:column>
+					</h:dataTable>
+
+				</h:form>
+			</f:view>
+		</ui:define>
+		
+	</ui:composition>
+
+</html>

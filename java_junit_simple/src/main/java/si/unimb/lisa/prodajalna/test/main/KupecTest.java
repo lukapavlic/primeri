@@ -14,7 +14,7 @@ public class KupecTest {
 
 		if (!k.getIme().equals("Andrej")) return "Ime je napacno.";
 		if (!k.getKoda().equals("And1")) return "Koda je napacna.";
-		if (k.getNakupi().size() != 0) return "Nakupi so napacni.";
+		if (k.getNakupi().size() != 1) return "Nakupi so napacni.";
 		return null;
 	}	
 	

@@ -6,18 +6,21 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
 import si.um.feri.jee.ins.vao.Claim;
-
 import java.util.List;
+import java.util.logging.Logger;
 
 @LocalBean
 @Stateless
 public class ClaimDao {
+
+    private Logger log=Logger.getLogger(ClaimDao.class.getName());
 
     @PersistenceContext
     private EntityManager em;
 
     public void persist(Claim c) {
         em.persist(c);
+        log.info("Persisted: "+c);
     }
 
     public Claim find(int id) {

@@ -9,6 +9,11 @@ import java.util.*;
 
 public class BancniRacun extends Bogat implements Serializable {
 
+    public void izpis() {
+        System.out.println("Jaz sem bančni račun");
+    }
+
+
     private String iban;
 
     private LocalDateTime odprtOd=LocalDateTime.now();
@@ -104,6 +109,8 @@ public class BancniRacun extends Bogat implements Serializable {
     public void setAktiven(boolean aktiven) {
         this.aktiven = aktiven;
     }
+
+
 
     @Override
     public String toString() {
