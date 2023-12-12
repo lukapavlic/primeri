@@ -49,20 +49,29 @@
 							Claims
 						</f:facet>
 						<h:column>
+							<f:facet name="header">
+								Date issued
+							</f:facet>
 							#{c.date}
 						</h:column>
 						<h:column>
+							<f:facet name="header">
+								Claim type
+							</f:facet>
 							#{c.claimType}
 						</h:column>
 						<h:column>
+							<f:facet name="header">
+								Description
+							</f:facet>
 							#{c.desc}
 						</h:column>
 						<h:column>
-							#{c.fraudProbabilityInt} %
+							<h:outputText value="#{c.fraudProbabilityInt} %" rendered="#{c.fraudProbabilityInt gt 0}" />
 						</h:column>
 					</h:dataTable>
 
-					<h:commandButton value="Detect Frauds" actionListener="#{ins.recalculateFraudPossibilities()}" id="button_recalculate" />
+					<h:commandButton value="Calculate Fraud Probability" actionListener="#{ins.recalculateFraudPossibilities()}" id="button_recalculate" />
 
 				</h:form>
 			</f:view>

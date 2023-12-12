@@ -17,14 +17,14 @@
 		<f:view>
 			<h:form>
 				Generate:
-				<h:selectOneMenu value="#{poems.topic}">
+				<h:selectOneMenu value="#{poems.topic}" id="topic_selection">
 					<f:selectItem itemValue="LOVE" itemLabel="Love poem" />
 					<f:selectItem itemValue="NATURE" itemLabel="Poem about nature" />
 					<f:selectItem itemValue="SOCIETY" itemLabel="Poem about society" />
 					<f:selectItem itemValue="CHILD" itemLabel="Poem for kids" />
 				</h:selectOneMenu>
 				in
-				<h:selectOneMenu value="#{poems.language}">
+				<h:selectOneMenu value="#{poems.language}" id="language_selection">
 					<f:selectItem itemValue="Slovenian" itemLabel="Slovenian" />
 					<f:selectItem itemValue="English" itemLabel="English" />
 					<f:selectItem itemValue="French" itemLabel="French" />
@@ -33,7 +33,7 @@
 				<br/>
 				Two stanzas, four lines each.
 				<br/><br/>
-				<h:commandButton value="Generate a Poem" actionListener="#{poems.generatePoem}" action="poem"/>
+				<h:commandButton value="Generate a Poem" actionListener="#{poems.generatePoem}" action="poem" id="generate_poem"/>
 			</h:form>
 		</f:view>
 		

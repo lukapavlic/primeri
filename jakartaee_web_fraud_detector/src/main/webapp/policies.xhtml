@@ -22,18 +22,33 @@
 							Policies
 						</f:facet>
 						<h:column>
+							<f:facet name="header">
+								Code
+							</f:facet>
 							#{p.policyCode}
 						</h:column>
 						<h:column>
+							<f:facet name="header">
+								Validity
+							</f:facet>
 							#{p.acquiredDate} - #{p.validTillDate}
 						</h:column>
 						<h:column>
+							<f:facet name="header">
+								Ownership
+							</f:facet>
 							<h:outputText value="First owner" rendered="#{p.firstCarOwner}" />
 						</h:column>
 						<h:column>
+							<f:facet name="header">
+								Car type
+							</f:facet>
 							#{p.carType}
 						</h:column>
 						<h:column>
+							<f:facet name="header">
+								Insured
+							</f:facet>
 							<h:outputText value="- animals" rendered="#{p.animals}" />
 							<h:outputText value="- thunderStorm" rendered="#{p.thunderStorm}" />
 							<h:outputText value="- vandalism" rendered="#{p.vandalism}" />
