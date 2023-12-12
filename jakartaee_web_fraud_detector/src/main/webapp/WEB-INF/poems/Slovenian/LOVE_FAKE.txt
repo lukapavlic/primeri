@@ -1,6 +1,0 @@
-    Najprej identificirajte primerno mesto za namestitev toplotne črpalke.
-    Obrnite se na strokovnjaka za ogrevanje, da izberete pravilno velikost in model črpalke.
-    Povežite notranjo enoto s hladilnim sredstvom s sistemom talnega ogrevanja ali radiatorji.
-    Priključite zunanjo enoto na električno omrežje in poskrbite za ustrezno električno napeljavo.
-    Zagotovite, da so vsi cevovodi in priključki tesni, da preprečite izgubo toplote.
-    Pred začetkom obratovanja preverite, ali je sistem pravilno delujoč in po potrebi nastavite termostate za optimalno delovanje.

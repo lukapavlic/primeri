@@ -1,6 +1,0 @@
-    Kezdd a hőszivattyú telepítéséhez megfelelő hely kiválasztásával.
-    Konzultálj fűtési szakemberrel a megfelelő méretű és modellű szivattyú kiválasztásához.
-    Csatlakoztasd a beltéri egységet a hűtőközeggel a padlófűtés vagy radiátor rendszerhez.
-    Csatlakoztasd a kültéri egységet az elektromos hálózathoz, és gondoskodj a megfelelő elektromos bekötésről.
-    Győződj meg róla, hogy az összes cső és csatlakozás szigetelt, hogy megakadályozzák a hőveszteséget.
-    Az üzembe helyezés előtt ellenőrizd, hogy a rendszer megfelelően működik-e, és szükség esetén állítsd be a termosztátokat optimális teljesítmény érdekében.
