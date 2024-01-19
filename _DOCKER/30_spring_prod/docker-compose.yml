@@ -4,6 +4,7 @@ services:
 
     spring_db:
         image: mysql:8.0.27
+        platform: linux/arm64
         restart: always
         environment:
           - MYSQL_DATABASE=prods
