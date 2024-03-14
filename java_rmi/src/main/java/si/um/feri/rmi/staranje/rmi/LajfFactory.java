@@ -8,8 +8,8 @@ import java.rmi.RemoteException;
 public class LajfFactory {
 
     public Lajf createLajf() throws Exception {
-        //return (Lajf) Naming.lookup("//localhost/lajf");
-        return new LajfImpl();
+        return (Lajf) Naming.lookup("//localhost/lajf");
+        //return new LajfImpl();
     }
 
 }

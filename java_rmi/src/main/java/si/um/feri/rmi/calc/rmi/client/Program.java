@@ -9,8 +9,8 @@ public class Program {
 	public static void main(String[] args) throws Exception {
 		
 		Calculator c=
-				new CalculatorFactory().createCalculator();
-				//(Calculator)Naming.lookup("//localhost/calc");
+				//new CalculatorFactory().createCalculator();
+				(Calculator)Naming.lookup("//localhost/calc");
 				//new Calculator();
 		
 		System.out.println(c.add(4, 5));

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<meta charset="UTF-8" />
+	<title>Products and Measurements</title>
+</h:head>
+
+<h:body>
+	<f:view>
+		<h:form>
+
+			<f:metadata>
+				<f:viewParam name="product" value="#{measurementsapp.productViewParam}" />
+			</f:metadata>
+
+
+			[ <a href="#{facesContext.externalContext.applicationContextPath}/faces/products.xhtml">Products</a> |
+			<a href="#{facesContext.externalContext.applicationContextPath}/faces/edit_product.xhtml?product=-1">Add a product</a> ]
+			<hr />
+
+			Product: <b>#{measurementsapp.currentProduct.name}</b>
+			(#{measurementsapp.currentProduct.minMeasure} - #{measurementsapp.currentProduct.maxMeasure})
+
+			<h:link value="Add Measurement" outcome="edit_measurement">
+				<f:param name="product" value="#{measurementsapp.currentProduct.id}" />
+			</h:link>
+
+			<h:dataTable value="#{measurementsapp.currentProductMeasurements}" var="m">
+				<h:column>
+					<f:facet name="header">Timestamp</f:facet>
+					#{m.createdString}
+				</h:column>
+				<h:column>
+					<f:facet name="header">Value</f:facet>
+					#{m.value}
+				</h:column>
+				<h:column>
+					<h:outputText value="OK" rendered="#{m.ok}" />
+					<h:outputText value="NOT OK" rendered="#{m.ok eq false}" />
+				</h:column>
+			</h:dataTable>
+
+		</h:form>
+	</f:view>
+</h:body>
+
+</html>

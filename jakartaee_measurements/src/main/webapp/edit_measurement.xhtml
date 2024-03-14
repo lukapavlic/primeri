@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<meta charset="UTF-8" />
+	<title>Products and Measurements</title>
+</h:head>
+
+<h:body>
+	<f:view>
+		<h:form>
+
+			<f:metadata>
+				<f:viewParam name="product" value="#{measurementsapp.productViewParam}" />
+			</f:metadata>
+
+			[ <a href="#{facesContext.externalContext.applicationContextPath}/faces/products.xhtml">Products</a> |
+			<a href="#{facesContext.externalContext.applicationContextPath}/faces/edit_product.xhtml">Add a product</a> ]
+			<hr />
+
+			<span style="color: red">
+				<h:messages/>
+			</span>
+
+			<table style="border: 0">
+				<tr>
+					<td>Product:</td>
+					<td><b>#{measurementsapp.currentProduct.name}</b></td>
+				</tr>
+				<tr>
+					<td>Value:</td>
+					<td><h:inputText value="#{measurementsapp.newMeasurementInput}" /></td>
+				</tr>
+				<tr>
+					<td> </td>
+					<td><h:commandButton value="Add" actionListener="#{measurementsapp.addMeasurement()}" action="measurements" /></td>
+				</tr>
+			</table>
+
+		</h:form>
+	</f:view>
+</h:body>
+
+</html>

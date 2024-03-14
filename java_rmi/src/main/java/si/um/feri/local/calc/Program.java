@@ -4,7 +4,7 @@ public class Program {
 
 	public static void main(String[] args) {
 		
-		Calculator c=new Calculator();
+		CalculatorInterface c=new Calculator();
 		
 		System.out.println("4+5="+c.add(4, 5));
 		

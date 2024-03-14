@@ -6,7 +6,7 @@ import java.util.logging.Logger;
 
 public class LajfImpl extends UnicastRemoteObject implements Lajf {
 
-	transient Logger log;//=Logger.getLogger(LajfImpl.class.toString());
+	transient Logger log=Logger.getLogger(LajfImpl.class.toString());
 
 	public LajfImpl() throws RemoteException {
 	}
