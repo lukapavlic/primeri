@@ -12,5 +12,5 @@
 - docker-compose build & docker-compose up
 
 ## Usage
-- http://127.0.0.1:8280/Measurements/faces/products.xhtml
+- http://127.0.0.1:8080/Measurements/faces/products.xhtml
 
