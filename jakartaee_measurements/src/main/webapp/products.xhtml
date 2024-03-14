@@ -41,6 +41,15 @@
 				</h:column>
 			</h:dataTable>
 
+			<h:outputText
+					value="Oooops! It looks there is no data in the DB. Want to insert test data?"
+					rendered="#{measurementsapp.productDao.productsCount eq 0}" />
+
+			<h:commandButton
+					value="Insert Test Data"
+					actionListener="#{measurementsapp.productDao.insertTestData()}"
+					rendered="#{measurementsapp.productDao.productsCount eq 0}" />
+
 		</h:form>
 	</f:view>
 </h:body>

@@ -22,6 +22,7 @@ public class MeasurementsJsfBean implements Serializable {
 	@EJB
 	MeasurementDao measurementDao;
 
+	@Getter
 	@EJB
 	ProductDao productDao;
 

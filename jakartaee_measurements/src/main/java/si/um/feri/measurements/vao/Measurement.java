@@ -12,6 +12,13 @@ public class Measurement {
 
 	private static final DateTimeFormatter TIMESTAMP = DateTimeFormatter.ofPattern("dd. MM. yyyy HH:mm:ss");
 
+	public Measurement(Product product, LocalDateTime dt,double value, boolean isOk) {
+		this.value = value;
+		this.isOk = isOk;
+		this.product = product;
+		created=dt;
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;

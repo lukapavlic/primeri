@@ -13,4 +13,8 @@ public interface ProductDao {
 
     Product find(int id);
 
+    int getProductsCount();
+
+    void insertTestData();
+
 }
