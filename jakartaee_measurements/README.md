@@ -12,11 +12,5 @@
 - docker-compose build & docker-compose up
 
 ## Usage
-- http://127.0.0.1:8280/api/v1/swagger-ui.html
-- http://127.0.0.1:8280/api/v1/v3/api-docs
-
-- http://127.0.0.1:8280/api/v1/products
-- http://127.0.0.1:8280/api/v1/products/1
-- http://127.0.0.1:8280/api/v1/history
-- http://127.0.0.1:8280/api/v1/product_measurement
+- http://127.0.0.1:8280/Measurements/faces/products.xhtml
 
